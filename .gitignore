@@ -23,3 +23,15 @@
 /package.json.ember-try
 
 /.firebase/
+
+/android/*.iml
+/android/.gradle
+/android//local.properties
+/android//.idea/libraries
+/android//.idea/modules.xml
+/android//.idea/workspace.xml
+/android//build
+/android//captures
+/android/.externalNativeBuild
+
+.DS_Store
