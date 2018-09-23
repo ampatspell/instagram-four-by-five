@@ -1,0 +1,19 @@
+{{#if transform}}
+  {{#if transform.value}}
+    <div class="finished">
+      <a href={{transform.value}} download={{transform.filename}}>
+        <img src={{transform.value}}>
+      </a>
+      <div class="restart" {{action 'reset'}}><div class="button">Choose another</div></div>
+    </div>
+  {{else}}
+    <div class="running">
+      Please wait…
+    </div>
+  {{/if}}
+{{else}}
+  <div class="input">
+    {{ui-input/file update=(action 'file')}}
+    <div class="label">Instagram 4:5</div>
+  </div>
+{{/if}}
