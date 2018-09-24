@@ -15,6 +15,7 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
+    "bump": "npm version minor --no-git-tag-version",
     "deploy": "ember build -prod --output-path firebase/public && (cd firebase && firebase deploy)"
   },
   "devDependencies": {
