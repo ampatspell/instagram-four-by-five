@@ -1,0 +1,14 @@
+<div class="content">
+  {{#if model.isNone}}
+    <div class="upload">
+      {{ui-input/file update=(action 'file')}}
+      <div class="info">4×5</div>
+    </div>
+  {{else if model.isUploading}}
+    <div class="message">Uploading image…</div>
+  {{else if model.isUploaded}}
+    <div class="message">Processing image…</div>
+  {{else if model.isError}}
+    <div class="message">Something went wrong: {{model.error.message}}</div>
+  {{/if}}
+</div>

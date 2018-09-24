@@ -10,6 +10,7 @@ html, body {
 }
 
 body {
+  background: fade-out(#000, 0.97);
   > .ember-view {
     height: 100%;
   }
@@ -18,67 +19,6 @@ body {
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-}
-
-.ui-route-index {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #eee;
-  > .input {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    width: 100%;
-    padding: 25px;
-    border: 1px solid #ddd;
-    background: #fff;
-    > .label {
-      font-size: 13px;
-      margin-left: 10px;
-    }
-  }
-  > .running {
-    width: 100%;
-    padding: 25px;
-    border: 1px solid #ddd;
-    background: #fff;
-  }
-  > .finished {
-    height: 100%;
-    position: relative;
-    > a {
-      display: block;
-      height: 100%;
-      > img {
-        background: #eee;
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: contain;
-      }
-    }
-    > .restart {
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      width: 100%;
-      cursor: pointer;
-      > .button {
-        font-size: 13px;
-        border: 1px solid #ddd;
-        padding: 6px 12px;
-        border-radius: 3px;
-        background: #fff;
-      }
-    }
-  }
 }
 
 .ui-input-file {
@@ -110,6 +50,60 @@ body {
   &:hover {
     > .details {
       background: fade-out(#ddd, 0.8);
+    }
+  }
+}
+
+.ui-route-files-new {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  > .content {
+    background: #fff;
+    border-top: 1px solid fade-out(#000, 0.9);
+    border-bottom: 1px solid fade-out(#000, 0.9);
+    width: 100%;
+    padding: 25px;
+    > .upload {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      > .info {
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+.ui-route-files-file-index {
+  > .content {
+    height: 100vh;
+    padding: 25px 0;
+    > a {
+      display: block;
+      height: 100%;
+      > .image {
+        height: 100%;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  > .footer {
+    padding: 0 25px 25px 25px;
+    text-align: center;
+    > a {
+      display: inline-block;
+      text-decoration: none;
+      color: #000;
+      font-size: 13px;
+      border: 1px solid #ddd;
+      padding: 6px 12px;
+      border-radius: 3px;
+      background: #fff;
     }
   }
 }

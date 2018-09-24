@@ -2,7 +2,7 @@
 
 const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-export default (len=8) => {
+module.exports = (len=8) => {
   let string = '';
   for (let i=0; i<len; i++) {
     string += possible.charAt(Math.floor(Math.random() * possible.length));
