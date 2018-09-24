@@ -41,8 +41,18 @@ module.exports = function(app) {
   };
 
   const getSizeMetadata = async filename => {
-    let { width, height } = await sharp(filename).metadata();
-    return { width, height };
+    let metadata = await sharp(filename).metadata();
+    let { width: w, height: h, orientation } = metadata;
+    if(orientation < 5) {
+      return {
+        width: w,
+        heigt: h
+      };
+    }
+    return {
+      width: h,
+      height: w
+    };
   };
 
   const calculateFrame = image => {
@@ -73,27 +83,31 @@ module.exports = function(app) {
   };
 
   const processImage = (original, frame, destination) => withTemporaryFile(async tmp => {
+    original = await sharp(original).rotate().toBuffer();
     await sharp({
       create: {
         width: frame.width,
         height: frame.height,
-        channels: 4,
-        background: { r: 255, g: 255, b: 255, alpha: 1 }
+        channels: 3,
+        background: { r: 255, g: 255, b: 255 }
       }
     })
     .overlayWith(original, {
       top: frame.y,
       left: frame.x
     })
-    .png()
+    .jpeg({
+      quality: 80
+    })
     .toFile(tmp);
 
     let token = uuid();
-    let filename = `four-by-five-${randomString(8)}.png`;
+    let filename = `four-by-five-${randomString(8)}.jpeg`;
     await app.bucket.upload(tmp, {
       destination,
+      resumable: false,
       metadata: {
-        contentType: 'image/png',
+        contentType: 'image/jpeg',
         contentDisposition: `attachment; filename="${filename}"`,
         metadata: {
           [TOKENS]: token

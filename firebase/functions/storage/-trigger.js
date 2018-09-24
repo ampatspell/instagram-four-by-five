@@ -1,9 +1,9 @@
 const murl = require('murl');
 
-module.exports = (app, pattern) => {
+module.exports = (app, pattern, runOpts) => {
   const matcher = murl(pattern);
   const build = name => {
-    let object = app.functions.storage.object();
+    let object = app.functions.runWith(runOpts).storage.object();
     return fn => object[name].call(object, async (metadata, context) => {
       let name = metadata.name;
       let params = matcher(name);
