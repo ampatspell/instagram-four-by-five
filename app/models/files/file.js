@@ -25,6 +25,7 @@ export default EmberObject.extend({
   }),
 
   url: readOnly('doc.data.images.processed.url'),
+  error: readOnly('doc.data.error'),
 
   async prepare({ id }) {
     this.setProperties({ id });

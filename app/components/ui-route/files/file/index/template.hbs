@@ -1,8 +1,12 @@
 <div class="content">
-  <a href={{model.url}}>
-    {{ui-block/background-image url=model.url class="image"}}
-  </a>
+  {{#if model.url}}
+    <a href={{model.url}}>
+      {{ui-block/background-image url=model.url class="image"}}
+    </a>
+  {{else}}
+    <div class="error">{{model.error}}</div>
+  {{/if}}
 </div>
 <div class="footer">
-  {{link-to 'Add another image' 'files.new'}}
+  <div class="button" {{action 'back'}}>Add another image</div>
 </div>

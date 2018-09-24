@@ -91,12 +91,16 @@ body {
         background-repeat: no-repeat;
       }
     }
+    > .error {
+      text-align: center;
+    }
   }
   > .footer {
     padding: 0 25px 25px 25px;
     text-align: center;
-    > a {
+    > .button {
       display: inline-block;
+      cursor: pointer;
       text-decoration: none;
       color: #000;
       font-size: 13px;
