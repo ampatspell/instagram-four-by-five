@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+import { htmlSafe } from '@ember/string';
 
 export default Component.extend({
   classNameBindings: [ ':ui-block-background-image' ],
@@ -11,7 +12,7 @@ export default Component.extend({
     if(!url) {
       return;
     }
-    return `background-image: url("${url}")`;
-  }).readOnly(),
+    return htmlSafe(`background-image: url("${url}")`);
+  }).readOnly()
 
 });
