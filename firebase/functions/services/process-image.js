@@ -43,10 +43,10 @@ module.exports = function(app) {
   const getSizeMetadata = async filename => {
     let metadata = await sharp(filename).metadata();
     let { width: w, height: h, orientation } = metadata;
-    if(orientation < 5) {
+    if(orientation === undefined || orientation < 5) {
       return {
         width: w,
-        heigt: h
+        height: h
       };
     }
     return {
