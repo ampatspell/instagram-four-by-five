@@ -23,7 +23,7 @@ admin.firestore().settings({ timestampsInSnapshots: true });
 let app = new Application(admin, functions);
 
 app.services.processImage({
-  directory: 'users/WITfC6fDEjdn5vHSdcpZvwkAKsu2/pictures/jkT6TxnzvkTwqJXL3MXL',
+  directory: 'users/I5EtvXS4kGfUF0EtWX6UV3YmYjT2/pictures/0oRLnCjvwFoLeb5PjvIU',
   original: 'original',
   processed: 'processed'
 }).then(res => {
