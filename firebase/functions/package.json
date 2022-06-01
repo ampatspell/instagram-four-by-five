@@ -13,7 +13,7 @@
     "firebase-admin": "~9.1.1",
     "firebase-functions": "^3.11.0",
     "murl": "^0.4.1",
-    "sharp": "^0.20.8",
+    "sharp": "^0.30.5",
     "tmp": "0.0.33",
     "uuid": "^3.3.2"
   },
